@@ -6,7 +6,7 @@ cd Keylogger
 pip install pynput
 ```
 
-<img src="https://github.com/Hasul79/Keylogger/assets/95657084/1a021be0-130d-4dce-b7a1-c541cd0e7adf" alt="1715353351920" width="200px">
+<img src="https://github.com/Hasul79/Keylogger/assets/95657084/1a021be0-130d-4dce-b7a1-c541cd0e7adf" alt="1715353351920" width="500px">
 
 
 
