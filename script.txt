@@ -1,0 +1,14 @@
+
+A b c e d f g r t y w s x v bAbcedfgrtywsxvb
+A b c d e f g fKey.backspacedir
+pKey.backspaceAbcdefgfdirp
+cls
+python script.py
+
+
+AA  bb  cc  dd  ee  ff  gg  spythonscript.pyAbcdefg
+Key.deleteKey.deleteAbcdefg
+Key.ctrl_lKey.ctrl_lKey.ctrl_lKey.ctrl_lKey.ctrl_lKey.ctrl_l\x03\x03Key.ctrl_lKey.ctrl_l\x03\x03Key.ctrl_lKey.ctrl_l\x03\x03
+A b c d e f g <97> <97> <98> <98> <99> <99> Abcdefg
+SS
+testtestpassword

