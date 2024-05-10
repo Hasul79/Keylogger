@@ -10,8 +10,8 @@ pip install pynput
 
 
 
-<p>
-A keylogger is a type of software or hardware device that records every keystroke typed on a computer's keyboard.</p>
+<h3>
+A keylogger is a type of software or hardware device that records every keystroke typed on a computer's keyboard.</h3>
 <br/>
 <p>Software Keyloggers: These are programs installed on a computer system that run in the background and capture keystrokes. They can be installed intentionally by the user or as part of malware or spyware.
 </p>
