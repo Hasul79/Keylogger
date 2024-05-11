@@ -19,8 +19,6 @@ A keylogger is a type of software or hardware device that records every keystrok
 
 ![Screenshot 2024-05-10 230704](https://github.com/Hasul79/Keylogger/assets/95657084/ceaed766-fc6e-42f6-9e35-5d5a28470557)
 
-![Screenshot 2024-05-10 231104](https://github.com/Hasul79/Keylogger/assets/95657084/47fd7085-2b5a-4c34-99fc-4db2378b9839)
-
 
 ![Screenshot 2024-05-10 231212](https://github.com/Hasul79/Keylogger/assets/95657084/05c42dac-a10c-4066-897c-e12b284d91c3)
 
